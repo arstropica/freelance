@@ -40,7 +40,7 @@ $post_count = 0;
 $grid_column_count = at_responsive_grid_column_count();
 if (have_posts()) :
     ?>
-    <div class="container main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+    <div class="container main">
         <?php
         // Start the Loop.
         while (have_posts()) : the_post();
@@ -60,7 +60,7 @@ if (have_posts()) :
         ?>
         <!--Previous/next post navigation.-->
     </div><!--!#container - main-->
-    <div class="container main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+    <div class="container main">
         <div class="row content-row">
             <?php
             do_action('at_responsive_after_entry');
@@ -74,7 +74,7 @@ if (have_posts()) :
 else :
     // If no content, include the "No posts found" template.
     ?>
-    <div class="container main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+    <div class="container main">
         <div class="row content-row post-wrapper">
             <?php
             get_template_part('templates/content', 'none');
