@@ -29,7 +29,7 @@ switch ($layout_type) {
     case 'home' :
     default : {
             ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class("col-md-{$grid_values['home']}"); ?> role="main">
+            <article id="post-<?php the_ID(); ?>" <?php post_class("col-md-{$grid_values['home']}"); ?> itemtype="http://schema.org/BlogPosting" itemprop="blogPost" role="main">
                 <div class="layout-wrapper">
                     <div class="content-wrapper eq-height">
                         <div class="entry-header">
@@ -41,7 +41,7 @@ switch ($layout_type) {
                             </div>
                             <?php at_responsive_post_title(); ?>
                         </div>            
-                        <div class="entry-content">
+                        <div class="entry-content" itemprop="text">
                             <?php at_responsive_post_excerpt(); ?>
                             <div style="width:100%; height: 0px; clear: both;"></div>
                         </div>
@@ -61,7 +61,7 @@ switch ($layout_type) {
     case 'date' :
     case 'archive' : {
             ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class("col-md-{$grid_values['archive']}"); ?>>
+            <article id="post-<?php the_ID(); ?>" <?php post_class("col-md-{$grid_values['archive']}"); ?> itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
                 <div class="layout-wrapper">
                     <div class="content-wrapper eq-height">
                         <div class="row">
@@ -91,7 +91,7 @@ switch ($layout_type) {
         }
     case 'singular' : {
             ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class("col-md-{$grid_values['single']}"); ?> role="main">
+            <article id="post-<?php the_ID(); ?>" <?php post_class("col-md-{$grid_values['single']}"); ?> itemtype="http://schema.org/BlogPosting" itemprop="blogPost" role="main">
                 <div class="layout-wrapper">
                     <div class="content-wrapper">
                         <div class="entry-header row">
@@ -107,7 +107,7 @@ switch ($layout_type) {
                                 <?php echo at_responsive_post_entry(); ?>
                             </div>
                         </div>
-                        <div class="entry-content">
+                        <div class="entry-content" itemprop="text">
                             <?php
                             the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', $theme_namespace));
                             wp_link_pages(array(
@@ -130,15 +130,15 @@ switch ($layout_type) {
         }
     case '404' : {
             ?>
-            <article id="post-404" class="<?php echo "col-md-{$grid_values['single']}"; ?> post-404" role="main">
+            <article id="post-404" class="<?php echo "col-md-{$grid_values['single']}"; ?> post-404" itemtype="http://schema.org/BlogPosting" itemprop="blogPost" role="main">
                 <div class="layout-wrapper">
                     <div class="content-wrapper">
                         <div class="entry-header row">
                             <div class="entry-heading col-sm-12">
-                                <h1 class="entry-title"><span><?php _e('Nothing Found for "' . get_search_query() . '"', $theme_namespace); ?></span></h1>
+                                <h1 class="entry-title" itemprop="headline"><span><?php _e('Nothing Found for "' . get_search_query() . '"', $theme_namespace); ?></span></h1>
                             </div>
                         </div>
-                        <div class="entry-content">
+                        <div class="entry-content" itemprop="text">
                             <?php locate_template('/templates/404.php', true, false); ?>
                         </div><!-- .entry-content -->
                     </div>
